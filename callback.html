@@ -15,7 +15,12 @@
                      
             //created callback function
             let calculator = function (params1, params2 , callback) {
-                return callback(params1 , params2);
+                if(typeof callback == "function"){
+                    return callback(params1 , params2);
+                } else{
+                    console.log("not a function");
+                }
+                
             }
             
             //creted addition function
@@ -36,6 +41,7 @@
             console.log(calculator(2,3, add));
             console.log(calculator(34,22, sub));
             console.log(calculator(5,6,mult));
+            console.log(calculator(5,6,7));
 
         </script>
     
