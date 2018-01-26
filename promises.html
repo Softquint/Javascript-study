@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+        <h1>Promises</h1>
+        <p>A promise is an object representing the eventual completion or failure of an asynchronus operatin</p>
+        <a href="https://scotch.io/tutorials/javascript-promises-for-dummies">Promise article</a>
+
+        <!-- javaScript Example -->
+        <script>
+        
+        var isMomHappy = true;
+
+        var willGetPhone = new Promise(function(resolve, reject){
+            if(isMomHappy){
+                var phone = {
+                    brand : "iPhone",
+                    color:"Golden"
+                }
+                resolve(phone)
+            } else {
+                var reson = new Error('mom is not happy');
+                reject(reson);
+            }
+        })
+
+        var showOff = function(phone){
+           return new Promise(function(resolve, reject){
+            var message = 'Hi friend i got new ' + phone.brand + ' Hurry' ;
+            resolve(message);
+           })
+
+        }
+
+        var askMom = function(){
+            console.log('before asking Mom');
+            willGetPhone.then(showOff).then(function(result){
+                console.log(result)
+            }).catch(function(error){
+                console.error(error)
+            })
+            console.log('after asking Mom');
+        } 
+
+        askMom();
+        </script>
+    
+    </body>
+</html>

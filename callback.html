@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+
+        <h1> CallBack Functions</h1>
+        <a href="https://www.youtube.com/watch?v=pTbSfCT42_M">callback video example</a>
+        <script>   
+
+                     
+            //created callback function
+            let calculator = function (params1, params2 , callback) {
+                if(typeof callback == "function"){
+                    return callback(params1 , params2);
+                } else{
+                    console.log("not a function");
+                }
+                
+            }
+            
+            //creted addition function
+            let add = function(n1,n2){
+                return n1+n2;
+            }
+            
+            //created sunbstraction function
+            let sub = function(n1,n2){
+                return n1-n2;
+            }
+            
+            //created multiplication function
+            let mult = function(n1,n2){
+                return n1*n2;
+            }
+
+            console.log(calculator(2,3, add));
+            console.log(calculator(34,22, sub));
+            console.log(calculator(5,6,mult));
+            console.log(calculator(5,6,7));
+
+        </script>
+    
+    </body>
+</html>
